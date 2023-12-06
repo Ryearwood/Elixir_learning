@@ -6,6 +6,7 @@ The Keyword Module
 - Keywords in Elixir are basically a list of tuple pairs used to fetch values based on the
 provided keyword[:key]
 - They are not guaranteed to be unique and are commonly referenced
+- Commonly used in Options and Configuration
 
 The Access Module
 
@@ -137,6 +138,8 @@ We can also use any Map function to retrieve struct values
 ## Behaviours
 
 """
+
+A Behaviour in Elixir is basically a contract that a module implementing the behaviour needs to adhere to.
 - Allow for Polymorphism
 - Define a contract
 - @impl

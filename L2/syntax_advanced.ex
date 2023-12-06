@@ -47,7 +47,7 @@ Open Terminal
 
 The get_in function actually handles Nil Values instead of throwing hard errors.
 
-> get_in(mp, [:a, :d, :c])
+> get_in(map, [:a, :d, :c])
   nil
 > map[:a][:d][:c]
   nil
@@ -108,7 +108,7 @@ Open Terminal
 > %User{birthday: 15} -----> Let's see if we exclude the enforced 'name' key and value
   ERROR
 
-Struct value or type can be fetched int he following manner
+Struct value or type can be fetched in the following manner
 > %struct_type{} = %User{name: "Russell"}
   %User{name: "Russell", birthday: 10}
 > struct_type
@@ -132,4 +132,76 @@ We can also use any Map function to retrieve struct values
 
 > Map.get(struct_item, :name)
   " Russell"
+"""
+
+## Behaviours
+
+"""
+- Allow for Polymorphism
+- Define a contract
+- @impl
+
+Open terminal
+
+> iex
+....
+> c "L2/behaviour.ex"
+  [Division, Multiplication, MyBehaviour]
+> MyBehaviour.serialize_math(Division, 10)
+  "5.0" (using operator '/' for division in Elixir will return a float value. For integers, use 'div()' instead)
+> MyBehaviour.serialize_math(Multiplication, 10)
+  "50"
+"""
+
+## Protocols
+
+"""
+- Another way to allow for Polymorphism
+- Allow for type-based implementations
+- Enumerable
+- Powerful tool
+
+A protocol species an API that should be defined by its implementations. A protocol is defined with
+'Kernel.defprotocol/2' and its implementations with 'Kernel.defimpl/2'
+
+For example, in Elixir there are 2 actions that can be used to check the items within a Data Structure - 'length' and 'size'.
+'length' means the the information has to be computed such that 'length(list) needs to traverse the entire list structure to determine its length.
+'size' however, comes with built-in multiple sub-methods 'tuple_size' and 'binary_size', and they do not depend on computation as they are precomputed within the data structure.
+
+Protocols allow us to retrieve information that is not specific to the available data structure type.
+I.E writing polymorphic code is possible in Elixir allowing us to work with different shapes/types.
+
+A size protocol can be implemented as follows:
+
+
+defprotocol Size do
+  @doc "Calculates the size(not the length) of a Data Structure"
+  def size(data)
+end
+
+defimpl Size, for: BitString do
+  def size(binary), do: byte_size(binary)
+end
+
+defimpl Size, for: Map do
+  def size(map), do: map_size(map)
+end
+
+defimpl Size, for: Tuple do
+  def size(tuple), do: tuple_size(tuple)
+end
+
+
+The Size module can be implemented with the use of 'Any' also
+
+defprotocol Size do
+  @fallback_to_any true
+
+  def size(data)
+end
+
+defimpl Size, for: Any do
+  def size(_), do: 0
+end
+
 """

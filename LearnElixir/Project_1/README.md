@@ -1,6 +1,6 @@
 # Giphyscraper
 
-**TODO: Add description**
+Application built in Elixir to scrape and parse giphy image information from the <a href="https://developers.giphy.com/docs/api/#quick-start-guide">Giphy API Endpoint</a>
 
 ## Installation
 

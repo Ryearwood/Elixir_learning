@@ -58,10 +58,10 @@ defmodule GiphyScraper.Scraper do
   @spec get_api_key_from_env :: tuple()
   defp get_api_key_from_env() do
     api_key = System.get_env(@api_keyname)
-    if not (api_key === nil) do
-        {:ok, api_key}
+    if is_nil(api_key) do
+      {:error, "Unable to retrieve API key."}
     else
-        {:error, "Unable to retrieve API key."}
+      {:ok, api_key}
     end
   end
 end

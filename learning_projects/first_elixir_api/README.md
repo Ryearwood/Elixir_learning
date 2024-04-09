@@ -1,6 +1,8 @@
 # FirstElixirApi
 
-**TODO: Add description**
+**First Elixir Api Endpoint Build**
+
+Current Status: In-Progress**
 
 ## Installation
 

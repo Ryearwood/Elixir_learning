@@ -46,14 +46,13 @@ defmodule Form do
     end
   end
 
+  @doc """
+  Formats the address as an uppercase multiline string.
+  """
   @spec format_address(address) :: String.t()
   def format_address(%{street: street, postal_code: postal_code, city: city}) do
     format_address({street, postal_code, city})
   end
-
-  @doc """
-  Formats the address as an uppercase multiline string.
-  """
 
   def format_address({street, postal_code, city}) do
     """

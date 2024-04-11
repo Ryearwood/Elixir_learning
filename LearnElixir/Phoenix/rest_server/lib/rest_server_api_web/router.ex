@@ -5,7 +5,7 @@ defmodule RestServerApiWeb.Router do
     plug(:accepts, ["json"])
   end
 
-  scope "/api", RestServerApiWeb do
+  scope "/", RestServerApiWeb do
     pipe_through(:api)
 
     resources("/users", UserController)

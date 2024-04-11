@@ -1,4 +1,4 @@
-defmodule RestServerWeb.UserController do
+defmodule RestServerApiWeb.UserController do
   use RestServerApiWeb, :controller
 
   def index(conn, params) do

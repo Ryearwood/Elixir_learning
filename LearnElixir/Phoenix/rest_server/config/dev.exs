@@ -1,29 +1,19 @@
 import Config
 
-# Configure your database
-config :real_deal_api, RealDealApi.Repo,
-  username: "ryearwoo",
-  password: "ren8451!",
-  hostname: "localhost",
-  database: "real_deal_api_dev",
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
-
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :real_deal_api, RealDealApiWeb.Endpoint,
+config :rest_server_api, RestServerApiWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: 4000],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "AeG/5Vvgwn6MNqfQodLZ3bsQbK5m6Q0roWOtcs62kN1owiO650XWgqjyjn+d6Vce",
+  secret_key_base: "AS40m5Tj65dV0nrRgO0HejmD4amqmy5sajPlXKAVQFu+LA5t4djpPJiOwbvdqWGf",
   watchers: []
 
 # ## SSL Support
@@ -50,7 +40,7 @@ config :real_deal_api, RealDealApiWeb.Endpoint,
 # different ports.
 
 # Enable dev routes for dashboard and mailbox
-config :real_deal_api, dev_routes: true
+config :rest_server_api, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

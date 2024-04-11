@@ -10,14 +10,14 @@ defmodule RestServerApiWeb.UserController do
   end
 
   def update(conn, %{"id" => id}) do
-    send_resp(conn, 200, "Update#{id}")
+    send_resp(conn, 200, "Update #{id}")
   end
 
   def create(conn, %{"name" => name}) do
     send_resp(conn, 200, "Create #{name}")
   end
 
-  def destroy(conn, %{"id" => id}) do
-    send_resp(conn, 200, "Destroy #{id}")
+  def delete(conn, %{"id" => id}) do
+    send_resp(conn, 200, "Delete #{id}")
   end
 end

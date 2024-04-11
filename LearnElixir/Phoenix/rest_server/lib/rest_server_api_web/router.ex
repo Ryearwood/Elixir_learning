@@ -7,5 +7,7 @@ defmodule RestServerApiWeb.Router do
 
   scope "/api", RestServerApiWeb do
     pipe_through(:api)
+
+    resources("/users", UserController)
   end
 end

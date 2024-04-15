@@ -29,7 +29,7 @@ defmodule GraphqlServerWeb.Shop do
     end
   end
 
-  def all() do
+  def all(_) do
     {:ok, @shops}
   end
 
@@ -40,4 +40,9 @@ defmodule GraphqlServerWeb.Shop do
     end
   end
 
+  def update(id, params) do
+    with {:ok, shop} <- find(%{id: id}) do
+      {:ok, Map.merge(shop, params)}
+    end
+  end
 end

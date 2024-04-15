@@ -3,22 +3,38 @@ defmodule GraphqlServerWeb.Shop do
     %{
       id: 1,
       name: "Clothing Shop",
-      category: :CLOTHING
+      category: :CLOTHING,
+      address: %{
+        country: "USA",
+        city: "New York"
+      }
     },
     %{
       id: 2,
       name: "Custom Clothing Shop",
-      category: :CLOTHING
+      category: :CLOTHING,
+      address: %{
+        country: "USA",
+        city: "Mississippi"
+      }
     },
     %{
       id: 3,
       name: "Hardware Shop",
-      category: :HARDWARE
+      category: :HARDWARE,
+      address: %{
+        country: "Canada",
+        city: "Vancouver"
+      }
     },
     %{
       id: 4,
       name: "Pool Shop",
-      category: :HARDWARE
+      category: :HARDWARE,
+      address: %{
+        country: "Canada",
+        city: "Calgary"
+      }
     }
   ]
 

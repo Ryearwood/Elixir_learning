@@ -5,6 +5,7 @@ defmodule W3GraphqlAssignmentWeb.Schema do
   import_types(W3GraphqlAssignmentWeb.Schema.Queries.Users)
   import_types(W3GraphqlAssignmentWeb.Schema.Mutations.Users)
 
+  #TODO -- Complete functions & move to resolvers.ex
   query do
     @desc "Get a User Profile by ID"
     field :user, :user do
@@ -20,6 +21,7 @@ defmodule W3GraphqlAssignmentWeb.Schema do
       end)
     end
 
+    #FIXME - grab users by preferences (Sub-menu filtering problem)
     @desc "Get a List of Users based on their Communication Preferences"
     field :users, list_of(:user) do
       arg(:preferences, :CommunicationPreferences)

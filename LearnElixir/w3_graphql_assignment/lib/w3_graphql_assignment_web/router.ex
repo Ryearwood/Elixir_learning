@@ -5,7 +5,10 @@ defmodule W3GraphqlAssignmentWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", W3GraphqlAssignmentWeb do
+  scope "/" do
     pipe_through :api
+    forward "/graphql", Absinthe.Plug, schema: W3GraphqlAssignmentWeb.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: W3GraphqlAssignmentWeb.Schema, interface: :playground
+
   end
 end

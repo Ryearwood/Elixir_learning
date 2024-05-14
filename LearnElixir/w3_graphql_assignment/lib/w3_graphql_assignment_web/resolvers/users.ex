@@ -45,6 +45,7 @@ Root of Absinthe Resolvers for User Schema
     }
   ]
 
+  # User Query
   def get_user_by_id(%{id: id}, _) do
     id = String.to_integer(id)
     case Enum.find(@users, &(&1.id === id)) do
@@ -53,6 +54,8 @@ Root of Absinthe Resolvers for User Schema
     end
   end
 
+  ## TODO
+  # Users Query -- Clarify if matching should be partial or strict for returning info
   def get_user_list_by_preferences(args = %{likes_emails: emails, likes_phone_calls: phone_calls, likes_faxes: faxes}, _) do
     case Enum.filter(@users, &match?(^args, &1.preferences)) do
       [] -> {:error, %{message: "Not Found", details: args}}

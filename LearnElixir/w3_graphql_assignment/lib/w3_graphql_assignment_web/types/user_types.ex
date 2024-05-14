@@ -1,4 +1,7 @@
-defmodule W3GraphqlAssignmentWeb.Types.Users do
+defmodule W3GraphqlAssignmentWeb.Types.UserTypes do
+  @moduledoc """
+  Root for Absinthe-GraphQL User Types
+  """
   use Absinthe.Schema.Notation
 
   @desc "User Info"
@@ -14,6 +17,13 @@ defmodule W3GraphqlAssignmentWeb.Types.Users do
     field(:likes_emails, :boolean)
     field(:likes_phone_calls, :boolean)
     field(:likes_faxes, :boolean)
-    field(:id, :user)
   end
+
+  # @desc "Preferences Types"
+  # input_object :preference_options do
+  #   field(:likes_emails, :boolean)
+  #   field(:likes_phone_calls, :boolean)
+  #   field(:likes_faxes, :boolean)
+  # end
+
 end

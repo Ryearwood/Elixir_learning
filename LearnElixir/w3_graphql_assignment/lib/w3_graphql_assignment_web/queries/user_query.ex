@@ -1,16 +1,16 @@
-defmodule W3GraphqlAssignmentWeb.Queries.User do
+defmodule W3GraphqlAssignmentWeb.Queries.UserQuery do
   @moduledoc """
-  The Root of Absinthe-GraphQL Queries
+  The Root for Absinthe-GraphQL User Queries
   """
   use Absinthe.Schema.Notation
 
-  alias W3GraphqlAssignmentWeb.Resolvers.Users
+  alias W3GraphqlAssignmentWeb.Resolvers.UserResolvers
 
   object :user_queries do
     @desc "Get a User Profile by ID"
     field :user, :user do
       arg :id, non_null(:id)
-      resolve &Users.get_user_by_id/2
+      resolve &UserResolvers.get_user_by_id/2
     end
   end
 
@@ -20,7 +20,7 @@ defmodule W3GraphqlAssignmentWeb.Queries.User do
       arg :likes_emails, :boolean
       arg :likes_phone_calls, :boolean
       arg :likes_faxes, :boolean
-      resolve &Users.get_user_list_by_preferences/2
+      resolve &UserResolvers.get_user_list_by_preferences/2
     end
   end
 end

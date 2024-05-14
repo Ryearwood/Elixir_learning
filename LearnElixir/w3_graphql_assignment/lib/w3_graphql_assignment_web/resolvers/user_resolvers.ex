@@ -1,6 +1,6 @@
-defmodule W3GraphqlAssignmentWeb.Resolvers.Users do
+defmodule W3GraphqlAssignmentWeb.Resolvers.UserResolvers do
 @moduledoc """
-Root of Absinthe Resolvers for User Schema
+Root of Absinthe Resolvers for User Queries
 """
   @users [
     %{
@@ -58,7 +58,7 @@ Root of Absinthe Resolvers for User Schema
   # Users Query -- Clarify if matching should be partial or strict for returning info
   def get_user_list_by_preferences(args = %{likes_emails: emails, likes_phone_calls: phone_calls, likes_faxes: faxes}, _) do
     case Enum.filter(@users, &match?(^args, &1.preferences)) do
-      [] -> {:error, %{message: "Not Found", details: args}}
+      [] -> {:error, %{message: "No Matches Found in User List", details: args}}
       list_of_matching_users -> {:ok, list_of_matching_users}
     end
   end

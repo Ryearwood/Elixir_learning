@@ -18,12 +18,4 @@ defmodule W3GraphqlAssignmentWeb.Types.UserTypes do
     field(:likes_phone_calls, :boolean)
     field(:likes_faxes, :boolean)
   end
-
-  # @desc "Preferences Types"
-  # input_object :preference_options do
-  #   field(:likes_emails, :boolean)
-  #   field(:likes_phone_calls, :boolean)
-  #   field(:likes_faxes, :boolean)
-  # end
-
 end

@@ -6,7 +6,8 @@ defmodule W3GraphqlAssignmentWeb.Schema do
 
   import_types W3GraphqlAssignmentWeb.Types.UserTypes
   import_types W3GraphqlAssignmentWeb.Queries.UserQuery
-  import_types W3GraphqlAssignmentWeb.Mutations.UserMutations
+  import_types W3GraphqlAssignmentWeb.Mutations.UpdateUser
+  import_types W3GraphqlAssignmentWeb.Mutations.CreateUser
 
   query do
     import_fields :user_queries
@@ -14,6 +15,7 @@ defmodule W3GraphqlAssignmentWeb.Schema do
   end
 
   mutation do
-    import_fields :user_mutations
+    import_fields :create_user
+    import_fields :update_user
   end
 end

@@ -1,9 +1,8 @@
 defmodule W3GraphqlAssignmentWeb.Mutations.CreateUser do
 
-  use Absinthe.Schema
+  use Absinthe.Schema.Notation
   alias W3GraphqlAssignmentWeb.Resolvers.MutationResolvers
 
-  # TODO Figure out creation mutation input types
 
   @desc "Preferences Types"
   input_object :preference_options do
@@ -17,7 +16,7 @@ defmodule W3GraphqlAssignmentWeb.Mutations.CreateUser do
       arg :id, non_null(:id)
       arg :name, non_null(:string)
       arg :email, non_null(:string)
-      arg :preferences, :preference_options
+      arg :preferences, non_null(:preference_options)
       resolve &UserResolvers.create_user/2
     end
   end

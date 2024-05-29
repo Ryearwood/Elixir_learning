@@ -54,8 +54,6 @@ Root of Absinthe Resolvers for User Queries
     end
   end
 
-  ## TODO
-  # Users Query -- Clarify if matching should be partial or strict for returning info
   def get_user_list_by_preferences(args = %{likes_emails: emails, likes_phone_calls: phone_calls, likes_faxes: faxes}, _) do
     case Enum.filter(@users, &match?(^args, &1.preferences)) do
       [] -> {:error, %{message: "No Matches Found in User List", details: args}}

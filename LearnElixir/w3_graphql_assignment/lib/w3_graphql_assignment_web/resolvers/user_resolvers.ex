@@ -45,7 +45,8 @@ Root of Absinthe Resolvers for User Queries
     }
   ]
 
-  # User Query
+  # User Resolvers
+
   def get_user_by_id(%{id: id}, _) do
     id = String.to_integer(id)
     case Enum.find(@users, &(&1.id === id)) do
@@ -58,6 +59,20 @@ Root of Absinthe Resolvers for User Queries
     case Enum.filter(@users, &match?(^args, &1.preferences)) do
       [] -> {:error, %{message: "No Matches Found in User List", details: args}}
       list_of_matching_users -> {:ok, list_of_matching_users}
+    end
+  end
+
+  def create_new_user(args = %{id: id, name: name, email: email, preferences: %{likes_emails: likes_emails, likes_phone_calls: likes_phone_calls, likes_faxes: likes_faxes}}) do
+    case Enum.concat(@users, [args]) do
+      [] -> {:error, %{message: "Unable to add New User to existing list of Users", details: args}}
+      list_with_new_user -> {:ok, list_with_new_user}
+    end
+  end
+
+  def update_user_params(params_map, id) do
+    case get_user_by_id(%{id: id,}, params_map) do
+      {:error, details} -> {:error, details}
+      {:ok, user} -> {:ok, Map.merge(user, Map.delete(params_map, id))}
     end
   end
 end

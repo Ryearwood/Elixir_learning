@@ -11,13 +11,25 @@ defmodule W3GraphqlAssignmentWeb.Mutations.CreateUser do
     field(:likes_faxes, non_null(:boolean))
   end
 
+  # Use this to check that createUser is updating Users list correctly
+
+  # object :create_user do
+  #   field :create_user, list_of(:user) do
+  #     arg :id, non_null(:id)
+  #     arg :name, non_null(:string)
+  #     arg :email, non_null(:string)
+  #     arg :preferences, non_null(:preference_options)
+  #     resolve &MutationResolvers.create_user/2
+  #   end
+  # end
+
   object :create_user do
     field :create_user, :user do
       arg :id, non_null(:id)
       arg :name, non_null(:string)
       arg :email, non_null(:string)
       arg :preferences, non_null(:preference_options)
-      resolve &UserResolvers.create_user/2
+      resolve &MutationResolvers.create_user/2
     end
   end
 end

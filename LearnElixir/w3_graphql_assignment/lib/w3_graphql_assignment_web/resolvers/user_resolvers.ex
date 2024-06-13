@@ -62,8 +62,9 @@ Root of Absinthe Resolvers for User Queries
     end
   end
 
-  defp filter_users(users, args) do
-    Enum.filter(@users, fn user ->
+  # Filters each user according to query preferences supplied in args
+  defp filter_users(users_list, args) do
+    Enum.filter(users_list, fn user ->
       Enum.all?(args, fn {field, value} ->
         match?(%{^field => ^value}, user[:preferences])
       end)

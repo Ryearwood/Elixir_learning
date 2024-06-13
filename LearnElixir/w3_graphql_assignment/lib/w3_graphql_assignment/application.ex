@@ -14,7 +14,8 @@ defmodule W3GraphqlAssignment.Application do
       # Start a worker by calling: W3GraphqlAssignment.Worker.start_link(arg)
       # {W3GraphqlAssignment.Worker, arg},
       # Start to serve requests, typically the last entry
-      W3GraphqlAssignmentWeb.Endpoint
+      W3GraphqlAssignmentWeb.Endpoint,
+      {Absinthe.Subscription, W3GraphqlAssignmentWeb.Endpoint}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

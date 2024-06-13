@@ -33,6 +33,7 @@ defmodule W3GraphqlAssignment.MixProject do
   defp deps do
     [
       {:phoenix, "~> 1.7.11"},
+      {:phoenix_pubsub, "~> 2.0"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
@@ -40,7 +41,8 @@ defmodule W3GraphqlAssignment.MixProject do
       {:dns_cluster, "~> 0.1.1"},
       {:bandit, "~> 1.2"},
       {:absinthe, "~> 1.7.0"},
-      {:absinthe_plug, "~> 1.5"}
+      {:absinthe_plug, "~> 1.5"},
+      {:absinthe_phoenix, "~> 2.0"}
     ]
   end
 

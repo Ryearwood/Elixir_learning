@@ -10,6 +10,7 @@ defmodule W3GraphqlAssignmentWeb.Schema do
   import_types W3GraphqlAssignmentWeb.Mutations.CreateUser
   import_types W3GraphqlAssignmentWeb.Mutations.UpdateUser
   import_types W3GraphqlAssignmentWeb.Mutations.UpdateUserPreferences
+  import_types W3GraphqlAssignmentWeb.Subscriptions.CreatedUser
 
 
   query do
@@ -23,6 +24,7 @@ defmodule W3GraphqlAssignmentWeb.Schema do
     import_fields :update_user_preferences
   end
 
-  # subscription do
-  # end
+  subscription do
+    import_fields :created_user
+  end
 end

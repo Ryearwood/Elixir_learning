@@ -4,11 +4,6 @@ Root of Absinthe Resolvers for Mutations
 """
   alias W3GraphqlAssignmentWeb.Resolvers.UserResolvers
 
-  # Resolver - updateUser Mutation
-  def update_user(%{id: id} = params, _) do
-    UserResolvers.update_user_params(params, id)
-  end
-
   # Use this to evaluate if createUser mutation is updating the Users List correctly
 
   # def create_user(args, _) do
@@ -21,6 +16,11 @@ Root of Absinthe Resolvers for Mutations
      {:error, details} -> {:error, details}
      {:ok, _} -> {:ok, args}
    end
+  end
+
+  # Resolver - updateUser Mutation
+  def update_user(%{id: id} = params, _) do
+    UserResolvers.update_user_params(params, id)
   end
 
   # Resolver - updateUserPreferences

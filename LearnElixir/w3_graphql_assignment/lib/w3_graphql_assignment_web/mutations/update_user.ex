@@ -1,6 +1,6 @@
 defmodule W3GraphqlAssignmentWeb.Mutations.UpdateUser do
   @moduledoc """
-  Root for Absinthe-GraphQL User Mutations
+  Root for Absinthe-GraphQL updateUser Mutation
   """
   use Absinthe.Schema.Notation
   alias W3GraphqlAssignmentWeb.Resolvers.MutationResolvers

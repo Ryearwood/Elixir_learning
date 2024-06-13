@@ -1,6 +1,6 @@
 defmodule W3GraphqlAssignmentWeb.Resolvers.UserResolvers do
 @moduledoc """
-Root of Absinthe Resolvers for User Queries
+Root of Absinthe Resolvers for User Objects
 """
   @users [
     %{

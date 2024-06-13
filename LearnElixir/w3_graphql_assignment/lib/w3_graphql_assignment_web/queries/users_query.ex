@@ -1,6 +1,6 @@
 defmodule W3GraphqlAssignmentWeb.Queries.UsersQuery do
   @moduledoc """
-  The Root for Absinthe-GraphQL User Queries
+  The Root for Absinthe-GraphQL Users Queries
   """
   use Absinthe.Schema.Notation
 

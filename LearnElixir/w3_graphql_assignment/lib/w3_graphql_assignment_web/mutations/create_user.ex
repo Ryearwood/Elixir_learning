@@ -1,5 +1,7 @@
 defmodule W3GraphqlAssignmentWeb.Mutations.CreateUser do
-
+  @moduledoc """
+  Root for Absinthe-GraphQL createUser Mutation
+  """
   use Absinthe.Schema.Notation
   alias W3GraphqlAssignmentWeb.Resolvers.MutationResolvers
 

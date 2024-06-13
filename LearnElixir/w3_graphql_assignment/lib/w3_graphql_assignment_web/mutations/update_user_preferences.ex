@@ -1,9 +1,9 @@
 defmodule W3GraphqlAssignmentWeb.Mutations.UpdateUserPreferences do
-@moduledoc """
-Root for Absinthe-GraphQL Update User Preferences Mutations
-"""
-use Absinthe.Schema.Notation
-alias W3GraphqlAssignmentWeb.Resolvers.MutationResolvers
+  @moduledoc """
+  Root for Absinthe-GraphQL updateUserPreferences Mutation
+  """
+  use Absinthe.Schema.Notation
+  alias W3GraphqlAssignmentWeb.Resolvers.MutationResolvers
 
   object :update_user_preferences do
     @desc "Updates User Preferences field"

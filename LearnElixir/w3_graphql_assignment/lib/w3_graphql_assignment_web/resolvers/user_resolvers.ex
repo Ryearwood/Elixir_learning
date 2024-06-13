@@ -55,11 +55,19 @@ Root of Absinthe Resolvers for User Queries
     end
   end
 
-  def get_user_list_by_preferences(args = %{likes_emails: emails, likes_phone_calls: phone_calls, likes_faxes: faxes}, _) do
-    case Enum.filter(@users, &match?(^args, &1.preferences)) do
+  def get_user_list_by_preferences(args, _) do
+    case filter_users(@users, args) do
       [] -> {:error, %{message: "No Matches Found in User List", details: args}}
       list_of_matching_users -> {:ok, list_of_matching_users}
     end
+  end
+
+  defp filter_users(users, args) do
+    Enum.filter(@users, fn user ->
+      Enum.all?(args, fn {field, value} ->
+        match?(%{^field => ^value}, user[:preferences])
+      end)
+    end)
   end
 
   def create_new_user(args = %{id: id, name: name, email: email, preferences: %{likes_emails: likes_emails, likes_phone_calls: likes_phone_calls, likes_faxes: likes_faxes}}) do

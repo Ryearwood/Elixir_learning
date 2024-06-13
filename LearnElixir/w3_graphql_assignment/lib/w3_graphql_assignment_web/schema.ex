@@ -23,6 +23,6 @@ defmodule W3GraphqlAssignmentWeb.Schema do
     import_fields :update_user_preferences
   end
 
-  subscription do
-  end
+  # subscription do
+  # end
 end

@@ -1,7 +1,7 @@
 defmodule W3GraphqlAssignmentWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :w3_graphql_assignment
   use Absinthe.Phoenix.Endpoint
-  
+
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
@@ -15,7 +15,9 @@ defmodule W3GraphqlAssignmentWeb.Endpoint do
   # socket "/live", Phoenix.LiveView.Socket,
   #   websocket: [connect_info: [session: @session_options]],
   #   longpoll: [connect_info: [session: @session_options]]
-
+  socket "/api/graphql", W3GraphqlAssignmentWeb.Channels.UserSocket,
+    websocket: true,
+    longpoll: false
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phx.digest

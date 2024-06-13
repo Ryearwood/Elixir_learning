@@ -25,6 +25,6 @@ defmodule W3GraphqlAssignmentWeb.Schema do
   end
 
   subscription do
-    import_fields :created_user
+    import_fields :created_user_subscriptions
   end
 end

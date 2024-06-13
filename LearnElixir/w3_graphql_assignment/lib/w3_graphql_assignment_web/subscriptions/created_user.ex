@@ -4,13 +4,13 @@ defmodule W3GraphqlAssignmentWeb.Subscriptions.CreatedUser do
   """
   use Absinthe.Schema.Notation
 
-  object :created_user do
-    field :create_user, :user do
-      arg :id, non_null(:id)
-      arg :name, non_null(:string)
-      arg :email, non_null(:string)
-      arg :preferences, non_null(:preference_options)
-      config fn args, %{context: context} -> {:ok, topic: args} end
+  object :created_user_subscriptions do
+    field :created_user, non_null(:user) do
+      config fn _args, _resolution ->
+        {:ok, topic: "created_user"}
+      end
+
+      trigger :create_user, topic: fn _ -> "created_user" end
     end
   end
 end

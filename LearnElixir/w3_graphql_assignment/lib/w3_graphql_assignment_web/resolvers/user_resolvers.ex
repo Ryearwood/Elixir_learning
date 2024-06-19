@@ -85,15 +85,10 @@ Root of Absinthe Resolvers for User Objects
     end
   end
 
-  def update_user_preferences(params_map, id) do
-    case get_user_by_id(%{id: id,}, params_map) do
+  def update_user_preferences(updated_preference_map, id) do
+    case get_user_by_id(%{id: id,}, updated_preference_map) do
       {:error, details} -> {:error, details}
-      {:ok, user} -> {:ok, update_preferences(user, params_map)}
+      {:ok, user} -> {:ok, Map.merge(user[:preferences], updated_preference_map)}
     end
-  end
-
-  defp update_preferences(user_map, params_map) do
-    updated_preferences = Map.merge(user_map[:preferences], Map.delete(params_map, :id))
-    Map.put(Map.delete(user_map, :preferences), :preferences, updated_preferences)
   end
 end

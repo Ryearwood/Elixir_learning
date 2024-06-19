@@ -24,7 +24,7 @@ Root of Absinthe Resolvers for Mutations
   end
 
   # Resolver - updateUserPreferences
-  def update_user_preferences(%{id: id} = params, _) do
+  def update_user_preferences(%{user_id: id} = params, _) do
     UserResolvers.update_user_preferences(params, id)
   end
 end
